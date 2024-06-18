@@ -11,6 +11,7 @@
     # ../modules/wireguard.nix
     ../modules/filesystem.nix
     ../modules/home-manager.nix
+    # ../packages/nomachine/nomachine.nix
   ];
 
   nixpkgs = {
@@ -70,11 +71,6 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-
-  # XRDP service
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "startplasma-x11";
-  networking.firewall.allowedTCPPorts = [ 3389 ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -138,6 +134,8 @@
     lshw
     nix-index
     wireguard-tools
+    nmap
+    # (pkgs.callPackage ../packages/nomachine/default.nix {})
   ];
 
   services.openssh = {
@@ -169,6 +167,14 @@
     enable = true;
     pinentryPackage = lib.mkForce pkgs.pinentry-qt;
   };
+
+  # XRDP service
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "startplasma-x11";
+  networking.firewall.allowedTCPPorts = [ 3389 ];
+
+  # services.nxserver.enable = true;
+  # networking.firewall.allowedTCPPorts = [ 4000 5353 ];
 
   system.stateVersion = "24.05";
 }
