@@ -24,21 +24,23 @@
 
   home.packages = with pkgs; [
     kdePackages.kate
-    microsoft-edge
-    vscode
-    spotify
-    solaar
-    vlc
     gnupg
     kdePackages.kwallet-pam
     kdePackages.bluedevil
     kdePackages.plasma-browser-integration
     flatpak
     kdePackages.discover
-    # nomachine-client
-    wireshark
     gitFull
     pinentry-all
+    ### Install from Discover by using Flatpak ( FlatHub )
+    # nomachine-client
+    # microsoft-edge
+    # vscode
+    # spotify
+    # solaar
+    # vlc
+    # wireshark
+    ### End of Discover
   ];
 
   home.file = {
