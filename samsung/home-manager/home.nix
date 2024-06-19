@@ -23,24 +23,26 @@
   };
 
   home.packages = with pkgs; [
-    kdePackages.kate
     gnupg
+    gitFull
+    pinentry-all
+    kdePackages.kate
     kdePackages.kwallet-pam
     kdePackages.bluedevil
     kdePackages.plasma-browser-integration
-    flatpak
+    kdePackages.flatpak-kcm
     kdePackages.discover
-    gitFull
-    pinentry-all
+    flatpak
     ### Install from Discover by using Flatpak ( FlatHub )
     # nomachine-client
-    # microsoft-edge
     # vscode
     # spotify
-    # solaar
     # vlc
-    # wireshark
     ### End of Discover
+    microsoft-edge
+    teams-for-linux
+    wireshark
+    solaar
   ];
 
   home.file = {
