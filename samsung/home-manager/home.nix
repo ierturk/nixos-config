@@ -23,6 +23,13 @@
   };
 
   home.packages = with pkgs; [
+    wayland-utils
+    egl-wayland
+    aha
+    clinfo
+    glxinfo
+    vulkan-tools
+    gpu-viewer
     gnupg
     gitFull
     pinentry-all
