@@ -35,14 +35,14 @@
     flatpak
     ### Install from Discover by using Flatpak ( FlatHub )
     # nomachine-client
-    # vscode
-    # spotify
-    # vlc
     ### End of Discover
+    vscode
     microsoft-edge
     teams-for-linux
     wireshark
     solaar
+    spotify
+    vlc
   ];
 
   home.file = {
