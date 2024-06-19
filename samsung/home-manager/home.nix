@@ -26,7 +26,6 @@
     kdePackages.kate
     microsoft-edge
     vscode
-    flatpak
     spotify
     solaar
     vlc
@@ -34,9 +33,9 @@
     kdePackages.kwallet-pam
     kdePackages.bluedevil
     kdePackages.plasma-browser-integration
+    flatpak
+    kdePackages.discover
     # nomachine-client
-    # kdePackages.dolphin
-    # kdePackages.dolphin-plugins
     wireshark
     gitFull
     pinentry-all
