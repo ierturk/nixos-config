@@ -136,6 +136,7 @@
     wireguard-tools
     nmap
     # (pkgs.callPackage ../packages/nomachine/default.nix {})
+    pulseaudio-module-xrdp
   ];
 
   services.openssh = {
@@ -169,9 +170,13 @@
   };
 
   # XRDP service
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "startplasma-x11";
-  networking.firewall.allowedTCPPorts = [ 3389 ];
+  services.xrdp = {
+    enable = true;
+    defaultWindowManager = "startplasma-x11";
+    openFirewall = true;
+    port = 3389;
+    audio.enable = true;
+  };
 
   # services.nxserver.enable = true;
   # networking.firewall.allowedTCPPorts = [ 4000 5353 ];
