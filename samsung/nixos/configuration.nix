@@ -11,7 +11,7 @@
     # ../modules/wireguard.nix
     ../modules/filesystem.nix
     ../modules/home-manager.nix
-    # ../packages/nomachine/nomachine.nix
+    # ../../common/packages/nomachine/nomachine.nix
   ];
 
   nixpkgs = {
@@ -147,12 +147,12 @@
     };
   };
 
-  services.flatpak.enable = true;
-
   services.udev.extraRules =
     ''
         SUBSYSTEM=="usb", ATTRS{idVendor}=="8086", ATTRS{idProduct}=="0189", ATTR{authorized}="0"
     '';
+
+  services.flatpak.enable = true;
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;

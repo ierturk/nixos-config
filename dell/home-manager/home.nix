@@ -23,23 +23,33 @@
   };
 
   home.packages = with pkgs; [
-    kdePackages.kate
-    microsoft-edge
-    vscode
-    flatpak
-    spotify
-    solaar
-    vlc
+    wayland-utils
+    egl-wayland
+    aha
+    clinfo
+    glxinfo
+    vulkan-tools
+    gpu-viewer
     gnupg
+    gitFull
+    pinentry-all
+    kdePackages.kate
     kdePackages.kwallet-pam
     kdePackages.bluedevil
     kdePackages.plasma-browser-integration
+    kdePackages.flatpak-kcm
+    kdePackages.discover
+    flatpak
+    ### Install from Discover by using Flatpak ( FlatHub )
     # nomachine-client
-    # kdePackages.dolphin
-    # kdePackages.dolphin-plugins
+    ### End of Discover
+    vscode
+    microsoft-edge
+    teams-for-linux
     wireshark
-    gitFull
-    pinentry-all
+    solaar
+    spotify
+    vlc
   ];
 
   home.file = {
