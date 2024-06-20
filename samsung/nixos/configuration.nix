@@ -137,6 +137,12 @@
     nmap
     # (pkgs.callPackage ../packages/nomachine/default.nix {})
     pulseaudio-module-xrdp
+    # sddm background
+    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+        [General]
+        background=${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/OneStandsOut/contents/images/2560x1600.jpg
+    '')
+    # end of sddm background
   ];
 
   services.openssh = {

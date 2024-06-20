@@ -38,6 +38,7 @@
     kdePackages.bluedevil
     kdePackages.plasma-browser-integration
     kdePackages.flatpak-kcm
+    # kdePackages.sddm-kcm
     kdePackages.discover
     flatpak
     ### Install from Discover by using Flatpak ( FlatHub )
@@ -50,6 +51,7 @@
     solaar
     spotify
     vlc
+    remmina
   ];
 
   home.file = {
