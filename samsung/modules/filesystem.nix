@@ -8,7 +8,7 @@
   };
 
   fileSystems."/Lab/Tools/LibVirt/images" = {
-    device = "/home/me/.local/share/linked-from-lab/libvirt/images";
+    device = "/home/me/.linked-from-lab/libvirt/images";
     fsType = "auto";
     options = [
 	"defaults"
@@ -19,7 +19,7 @@
   };
 
   fileSystems."/Lab/Tools/Apps" = {
-    device = "/home/me/.local/share/linked-from-lab/apps";
+    device = "/home/me/.linked-from-lab/apps";
     fsType = "auto";
     options = [
 	"defaults"

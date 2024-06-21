@@ -11,7 +11,7 @@
     # ../modules/wireguard.nix
     ../modules/filesystem.nix
     ../modules/home-manager.nix
-    # ../../common/packages/nomachine/nomachine.nix
+    ../../common/packages/nomachine/nomachine.nix
   ];
 
   nixpkgs = {
@@ -135,7 +135,7 @@
     nix-index
     wireguard-tools
     nmap
-    # (pkgs.callPackage ../packages/nomachine/default.nix {})
+    # (pkgs.callPackage ../../common/packages/nomachine/default.nix {})
     pulseaudio-module-xrdp
     # sddm background
     (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
@@ -143,6 +143,13 @@
         background=${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/OneStandsOut/contents/images/2560x1600.jpg
     '')
     # end of sddm background
+    distrobox
+    podman
+    dive
+    podman-tui
+    podman-compose
+    podman-desktop
+    toolbox
   ];
 
   services.openssh = {
@@ -158,10 +165,22 @@
         SUBSYSTEM=="usb", ATTRS{idVendor}=="8086", ATTRS{idProduct}=="0189", ATTR{authorized}="0"
     '';
 
+  # Virtualization
   services.flatpak.enable = true;
-
-  virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  virtualisation = {
+    libvirtd.enable = true;
+    containers.enable = true;
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+  };
 
   hardware.logitech.wireless.enable = true;
   hardware.bluetooth.enable = true;
@@ -176,16 +195,16 @@
   };
 
   # XRDP service
-  services.xrdp = {
-    enable = true;
-    defaultWindowManager = "startplasma-x11";
-    openFirewall = true;
-    port = 3389;
-    audio.enable = true;
-  };
+  # services.xrdp = {
+  #   enable = true;
+  #   defaultWindowManager = "startplasma-x11";
+  #   openFirewall = true;
+  #   port = 3389;
+  #   audio.enable = true;
+  # };
 
-  # services.nxserver.enable = true;
-  # networking.firewall.allowedTCPPorts = [ 4000 5353 ];
+  services.nxserver.enable = true;
+  networking.firewall.allowedTCPPorts = [ 4000 5353 ];
 
   system.stateVersion = "24.05";
 }
