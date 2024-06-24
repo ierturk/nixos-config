@@ -11,7 +11,7 @@
     # ../modules/wireguard.nix
     ../modules/filesystem.nix
     ../modules/home-manager.nix
-    ../../common/packages/nomachine/nomachine.nix
+    # ../../common/packages/nomachine/nomachine.nix
   ];
 
   nixpkgs = {
@@ -71,6 +71,9 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
+  # services.displayManager.sddm.settings.General.DisplayServer = "x11-user";
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -137,19 +140,21 @@
     nmap
     # (pkgs.callPackage ../../common/packages/nomachine/default.nix {})
     pulseaudio-module-xrdp
+
     # sddm background
     (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
         [General]
         background=${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/OneStandsOut/contents/images/2560x1600.jpg
     '')
     # end of sddm background
+
     distrobox
     podman
     dive
     podman-tui
     podman-compose
     podman-desktop
-    toolbox
+    # toolbox
   ];
 
   services.openssh = {
@@ -203,8 +208,12 @@
   #   audio.enable = true;
   # };
 
-  services.nxserver.enable = true;
-  networking.firewall.allowedTCPPorts = [ 4000 5353 ];
+  # services.nxserver.enable = true;
+  # services.nxserver.serverSettings.SessionLogLevel = 9;
+  # networking.firewall.allowedTCPPorts = [ 4000 5353 ];
+
+  # services.displayManager.sddm.wayland.enable = false;
+  # services.displayManager.defaultSession = "plasmax11";
 
   system.stateVersion = "24.05";
 }
