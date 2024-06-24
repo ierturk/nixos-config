@@ -11,7 +11,7 @@
     # ../modules/wireguard.nix
     ../modules/filesystem.nix
     ../modules/home-manager.nix
-    # ../../common/packages/nomachine/nomachine.nix
+    ../../common/packages/nomachine/nomachine.nix
   ];
 
   nixpkgs = {
@@ -65,15 +65,29 @@
   };
 
   # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
-  # services.displayManager.sddm.settings.General.DisplayServer = "x11-user";
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = false;
+    # settings.General.DisplayServer = "x11-user";
+  };
 
+  services.desktopManager.plasma6.enable = true;
+
+  # Enable automatic login for the user.
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = "me";
+  # Workaround for autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
+  # systemd.services."getty@tty1".enable = false;
+  # systemd.services."autovt@tty1".enable = false;
+
+  ### Various tests
+  # services.xserver.desktopManager.plasma5.enable = true;
+  # services.displayManager.defaultSession = "plasmax11";
+  # services.xserver.windowManager.icewm.enable = true;
+  ###
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -108,25 +122,15 @@
     me = {
       isNormalUser = true;
       description = "Ibrahim Erturk";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "wireshark" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "wireshark" "podman" ];
     };
   };
 
-  # Enable automatic login for the user.
-  # services.displayManager.autoLogin.enable = true;
-  # services.displayManager.autoLogin.user = "me";
 
-  # Workaround for autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
-  # Install firefox.
-  # programs.firefox.enable = false;
-
+  ### Plasma browser integration fix
   environment.etc."opt/edge/native-messaging-hosts/org.kde.plasma.browser_integration.json".source = "${pkgs.kdePackages.plasma-browser-integration}/etc/opt/edge/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 
-    # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -138,23 +142,32 @@
     nix-index
     wireguard-tools
     nmap
-    # (pkgs.callPackage ../../common/packages/nomachine/default.nix {})
-    pulseaudio-module-xrdp
+    # pulseaudio-module-xrdp
 
-    # sddm background
-    (pkgs.writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-        [General]
+    ### sddm background
+    (writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
+      [General]
         background=${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/OneStandsOut/contents/images/2560x1600.jpg
     '')
-    # end of sddm background
+    ### end of sddm background
+
+    ### NoMachine server
+    # (pkgs.callPackage ../../common/packages/nomachine/default.nix {})
 
     distrobox
     podman
     dive
     podman-tui
     podman-compose
-    podman-desktop
+    # podman-desktop
     # toolbox
+
+    networkmanager
+
+    # xorg.xhost
+    # xorg.xdpyinfo
+    # wayvnc
+    xwayland-run
   ];
 
   services.openssh = {
@@ -208,12 +221,13 @@
   #   audio.enable = true;
   # };
 
-  # services.nxserver.enable = true;
-  # services.nxserver.serverSettings.SessionLogLevel = 9;
-  # networking.firewall.allowedTCPPorts = [ 4000 5353 ];
+  # NX server
+  services.nxserver.enable = true;
+  services.nxserver.serverSettings.SessionLogLevel = 9;
+  services.nxserver.nodeSettings.EnableEGLCapture = true;
+  networking.firewall.allowedTCPPorts = [ 4000 5353 ];
 
-  # services.displayManager.sddm.wayland.enable = false;
-  # services.displayManager.defaultSession = "plasmax11";
+  # programs.hyprland.enable = true;
 
   system.stateVersion = "24.05";
 }
