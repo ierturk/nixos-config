@@ -11,7 +11,7 @@
     # ../modules/wireguard.nix
     ../modules/filesystem.nix
     ../modules/home-manager.nix
-    ../../common/packages/nomachine/nomachine.nix
+    # ../../common/packages/nomachine/nomachine.nix
   ];
 
   nixpkgs = {
@@ -70,7 +70,7 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = false;
+    wayland.enable = true;
     # settings.General.DisplayServer = "x11-user";
   };
 
@@ -222,12 +222,14 @@
   # };
 
   # NX server
-  services.nxserver.enable = true;
-  services.nxserver.serverSettings.SessionLogLevel = 9;
-  services.nxserver.nodeSettings.EnableEGLCapture = true;
-  networking.firewall.allowedTCPPorts = [ 4000 5353 ];
+  # services.nxserver.enable = true;
+  # services.nxserver.serverSettings.SessionLogLevel = 9;
+  # services.nxserver.nodeSettings.EnableEGLCapture = true;
+  # networking.firewall.allowedTCPPorts = [ 4000 5353 ];
 
   # programs.hyprland.enable = true;
+
+  networking.firewall.allowedTCPPorts = [ 3389 ];
 
   system.stateVersion = "24.05";
 }

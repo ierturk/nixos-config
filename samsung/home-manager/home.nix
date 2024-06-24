@@ -41,6 +41,7 @@
     kdePackages.plasma-browser-integration
     kdePackages.flatpak-kcm
     kdePackages.discover
+    kdePackages.krdp
     # kdePackages.sddm-kcm
     ######
 
@@ -70,7 +71,7 @@
   ];
 
   home.file = {
-    ".gitconfig".source = ./dotfiles/gitconfig;
+    ".gitconfig".source = ../../common/dotfiles/gitconfig;
   };
 
   programs.bash = {

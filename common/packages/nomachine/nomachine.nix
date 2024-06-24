@@ -177,7 +177,7 @@ in
         EnableDirectXSupport = lib.mkDefault false;
 
         # DisplayServerExtraOptions = "-wlmode compositor";
-        # WaylandModes = "egl,compositor,drm";
+        WaylandModes = "egl,compositor,drm";
         # DefaultDesktopCommand = "env -u DISPLAY /run/current-system/sw/bin/dbus-launch --sh-syntax --exit-with-session /run/current-system/sw/bin/startplasma-x11";
       };
     };

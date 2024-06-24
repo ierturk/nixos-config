@@ -1,9 +1,0 @@
-[user]
-    name = Ibrahim Erturk
-    email = me@erturk.me
-
-[init]
-    defaultBranch = master
-
-[core]
-    editor = vim
