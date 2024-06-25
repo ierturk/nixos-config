@@ -11,7 +11,7 @@
     # ../modules/wireguard.nix
     ../modules/filesystem.nix
     ../modules/home-manager.nix
-    # ../../common/packages/nomachine/nomachine.nix
+    ../../common/packages/nomachine/nomachine.nix
   ];
 
   nixpkgs = {
@@ -86,7 +86,7 @@
   ### Various tests
   services.xserver.desktopManager.plasma5.enable = true;
   services.displayManager.defaultSession = "plasma";
-  # services.xserver.windowManager.icewm.enable = true;
+  services.xserver.windowManager.icewm.enable = true;
   ###
 
   # Configure keymap in X11
@@ -222,13 +222,12 @@
   # };
 
   # NX server
-  # services.nxserver.enable = true;
-  # services.nxserver.serverSettings.SessionLogLevel = 9;
-  # services.nxserver.nodeSettings.EnableEGLCapture = true;
-  # networking.firewall.allowedTCPPorts = [ 4000 5353 ];
+  services.nxserver.enable = true;
+  services.nxserver.serverSettings.SessionLogLevel = 9;
+  services.nxserver.nodeSettings.EnableEGLCapture = true;
+  networking.firewall.allowedTCPPorts = [ 4000 5353 ];
 
   # programs.hyprland.enable = true;
-
   # networking.firewall.allowedTCPPorts = [ 3389 ];
 
   system.stateVersion = "24.05";
