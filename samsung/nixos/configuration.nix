@@ -70,11 +70,11 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
+    wayland.enable = false;
     # settings.General.DisplayServer = "x11-user";
   };
 
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
@@ -84,8 +84,8 @@
   systemd.services."autovt@tty1".enable = false;
 
   ### Various tests
-  # services.xserver.desktopManager.plasma5.enable = true;
-  # services.displayManager.defaultSession = "plasmax11";
+  services.xserver.desktopManager.plasma5.enable = true;
+  services.displayManager.defaultSession = "plasma";
   # services.xserver.windowManager.icewm.enable = true;
   ###
 
@@ -167,7 +167,7 @@
     # xorg.xhost
     # xorg.xdpyinfo
     # wayvnc
-    xwayland-run
+    # xwayland-run
   ];
 
   services.openssh = {
@@ -229,7 +229,7 @@
 
   # programs.hyprland.enable = true;
 
-  networking.firewall.allowedTCPPorts = [ 3389 ];
+  # networking.firewall.allowedTCPPorts = [ 3389 ];
 
   system.stateVersion = "24.05";
 }

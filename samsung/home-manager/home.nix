@@ -23,8 +23,8 @@
   };
 
   home.packages = with pkgs; [
-    wayland-utils
-    egl-wayland
+    # wayland-utils
+    # egl-wayland
     aha
     clinfo
     glxinfo
@@ -35,23 +35,24 @@
     pinentry-all
 
     ###### KDE 6
-    kdePackages.kate
-    kdePackages.kwallet-pam
-    kdePackages.bluedevil
-    kdePackages.plasma-browser-integration
-    kdePackages.flatpak-kcm
-    kdePackages.discover
-    kdePackages.krdp
+    # kdePackages.kate
+    # kdePackages.kwallet-pam
+    # kdePackages.bluedevil
+    # kdePackages.plasma-browser-integration
+    # kdePackages.flatpak-kcm
+    # kdePackages.discover
+    # kdePackages.krdp
+    # kdePackages.krdc
     # kdePackages.sddm-kcm
     ######
 
     ###### KDE 5
-    # libsForQt5.kate
-    # libsForQt5.kwallet-pam
-    # libsForQt5.bluedevil
-    # libsForQt5.plasma-browser-integration
-    # libsForQt5.flatpak-kcm
-    # libsForQt5.discover
+    libsForQt5.kate
+    libsForQt5.kwallet-pam
+    libsForQt5.bluedevil
+    libsForQt5.plasma-browser-integration
+    libsForQt5.flatpak-kcm
+    libsForQt5.discover
     # libsForQt5.sddm-kcm
     #######
 
