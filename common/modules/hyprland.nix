@@ -10,6 +10,8 @@ in {
     rofi-wayland
     swww
     waybar
+    pavucontrol
+    wayvnc
   ];
 
   programs.hyprland.enable = true;
@@ -19,7 +21,7 @@ in {
     NIXOS_OZONE_WL = "1";
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     font-awesome
     nerdfonts
   ];
