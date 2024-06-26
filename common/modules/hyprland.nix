@@ -12,6 +12,7 @@ in {
     waybar
     pavucontrol
     wayvnc
+    hyprpaper
   ];
 
   programs.hyprland.enable = true;
