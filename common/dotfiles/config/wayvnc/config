@@ -1,0 +1,3 @@
+use_relative_paths=true
+address=0.0.0.0
+rsa_private_key_file=wayvnc_rsa_key.pem

@@ -14,6 +14,7 @@ in {
     hyprpaper
     wofi
     blueman
+    # hyprlock
   ];
 
   programs.hyprland.enable = true;
