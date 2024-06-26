@@ -75,6 +75,7 @@
   };
 
   # services.desktopManager.plasma6.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Enable automatic login for the user.
   # services.displayManager.autoLogin.enable = true;
@@ -84,7 +85,6 @@
   # systemd.services."autovt@tty1".enable = false;
 
   ### Various tests
-  services.xserver.desktopManager.plasma5.enable = true;
   services.displayManager.defaultSession = "none+icewm";
   services.xserver.windowManager.icewm.enable = true;
   ###

@@ -12,6 +12,7 @@
     ../modules/filesystem.nix
     ../modules/home-manager.nix
     ../../common/packages/nomachine/nomachine.nix
+    ../hyprland.nix
   ];
 
   nixpkgs = {
@@ -75,6 +76,7 @@
   };
 
   # services.desktopManager.plasma6.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Enable automatic login for the user.
   # services.displayManager.autoLogin.enable = true;
@@ -84,10 +86,20 @@
   # systemd.services."autovt@tty1".enable = false;
 
   ### Various tests
-  services.xserver.desktopManager.plasma5.enable = true;
   services.displayManager.defaultSession = "none+icewm";
   services.xserver.windowManager.icewm.enable = true;
   ###
+
+  ### SwayWM
+  # services.gnome.gnome-keyring.enable = true;
+  # enable sway window manager
+  # programs.sway = {
+  #   enable = true;
+  #   wrapperFeatures.gtk = true;
+  # };
+  ### End of SwayWM
+
+  # services.xserver.desktopManager.xfce.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -122,7 +134,7 @@
     me = {
       isNormalUser = true;
       description = "Ibrahim Erturk";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "wireshark" "podman" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "wireshark" "podman" "video" ];
     };
   };
 
@@ -168,6 +180,12 @@
     # xorg.xdpyinfo
     # wayvnc
     # xwayland-run
+
+    ### SwayWM
+    # grim # screenshot functionality
+    # slurp # screenshot functionality
+    # wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    # mako # notification system developed by swaywm maintainer
   ];
 
   services.openssh = {
@@ -221,10 +239,16 @@
   #   audio.enable = true;
   # };
 
-  # NX server
-  services.nxserver.enable = true;
+  ### NX server
+  services.nxserver.enable = false;
+  ## server settings
+  services.nxserver.serverSettings.EnableDebug = true;
   services.nxserver.serverSettings.SessionLogLevel = 9;
-  services.nxserver.nodeSettings.EnableEGLCapture = true;
+  ## node settings
+  services.nxserver.nodeSettings.EnableDebug = true;
+  services.nxserver.nodeSettings.SessionLogLevel = 9;
+  # services.nxserver.nodeSettings.EnableEGLCapture = true;
+  # open port
   networking.firewall.allowedTCPPorts = [ 4000 5353 ];
 
   # programs.hyprland.enable = true;
