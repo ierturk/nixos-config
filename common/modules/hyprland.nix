@@ -8,11 +8,12 @@ in {
     libnotify
     networkmanagerapplet
     rofi-wayland
-    swww
     waybar
     pavucontrol
     wayvnc
     hyprpaper
+    wofi
+    blueman
   ];
 
   programs.hyprland.enable = true;

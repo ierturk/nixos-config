@@ -75,6 +75,7 @@
     ".gitconfig".source = ../dotfiles/gitconfig;
     ".config/hypr/hyprland.conf".source = ../dotfiles/config/hypr/hyprland.conf;
     ".config/hypr/hyprpaper.conf".source = ../dotfiles/config/hypr/hyprpaper.conf;
+    ".config/hypr/wallpapers/OneStandsOut.jpg".source = ../dotfiles/config/hypr/wallpapers/OneStandsOut.jpg;
   };
 
   programs.bash = {
