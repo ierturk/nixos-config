@@ -72,7 +72,9 @@
   ];
 
   home.file = {
-    ".gitconfig".source = ../../common/dotfiles/gitconfig;
+    ".gitconfig".source = ../dotfiles/gitconfig;
+    ".config/hypr/hyprland.conf".source = ../dotfiles/config/hypr/hyprland.conf;
+    ".config/hypr/startup.sh".source = ../dotfiles/config/hypr/startup.sh;
   };
 
   programs.bash = {
