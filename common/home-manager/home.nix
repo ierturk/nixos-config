@@ -87,6 +87,8 @@
     ".config/waybar/style.css".source = ../dotfiles/config/waybar/style.css;
     ### Wofi
     ".config/wofi/style.css".source = ../dotfiles/config/wofi/style.css;
+    ### Hypridle
+    ".config/hypr/hypridle.conf".source = ../dotfiles/config/hypr/hypridle.conf;
 
     ##### WayVnc
     ".config/wayvnc/config".source = ../dotfiles/config/wayvnc/config;

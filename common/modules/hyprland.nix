@@ -7,7 +7,7 @@ in {
     kitty
     libnotify
     networkmanagerapplet
-    rofi-wayland
+    # rofi-wayland
     waybar
     pavucontrol
     wayvnc
@@ -15,6 +15,7 @@ in {
     wofi
     blueman
     # hyprlock
+    hypridle
   ];
 
   programs.hyprland.enable = true;
