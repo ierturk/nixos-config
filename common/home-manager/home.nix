@@ -80,7 +80,7 @@
     ".config/hypr/hyprland.conf".source = ../dotfiles/config/hypr/hyprland.conf;
     ### Wallpaper config
     ".config/hypr/hyprpaper.conf".source = ../dotfiles/config/hypr/hyprpaper.conf;
-    ".config/hypr/wallpapers/OneStandsOut.jpg".source = ../dotfiles/config/hypr/wallpapers/OneStandsOut.jpg;
+    ".config/hypr/images/OneStandsOut.jpg".source = ../dotfiles/config/hypr/images/OneStandsOut.jpg;
     ### WayBar config
     ".config/waybar/config".source = ../dotfiles/config/waybar/config;
     ".config/waybar/mocha.css".source = ../dotfiles/config/waybar/mocha.css;
@@ -89,9 +89,10 @@
     ".config/wofi/style.css".source = ../dotfiles/config/wofi/style.css;
     ### Hypridle
     ".config/hypr/hypridle.conf".source = ../dotfiles/config/hypr/hypridle.conf;
-    ### Hypridle
+    ### Hyprlock
     ".config/hypr/hyprlock.conf".source = ../dotfiles/config/hypr/hyprlock.conf;
     ".config/hypr/mocha.conf".source = ../dotfiles/config/hypr/mocha.conf;
+    ".config/hypr/images/avatar.jpeg".source = ../dotfiles/config/hypr/images/avatar.jpeg;
 
     ##### WayVnc
     ".config/wayvnc/config".source = ../dotfiles/config/wayvnc/config;
