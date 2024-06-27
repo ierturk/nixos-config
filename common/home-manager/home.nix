@@ -89,6 +89,8 @@
     ".config/wofi/style.css".source = ../dotfiles/config/wofi/style.css;
     ### Hypridle
     ".config/hypr/hypridle.conf".source = ../dotfiles/config/hypr/hypridle.conf;
+    ### Hypridle
+    ".config/hypr/hyprlock.conf".source = ../dotfiles/config/hypr/hyprlock.conf;
 
     ##### WayVnc
     ".config/wayvnc/config".source = ../dotfiles/config/wayvnc/config;

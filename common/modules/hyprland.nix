@@ -14,7 +14,7 @@ in {
     hyprpaper
     wofi
     blueman
-    # hyprlock
+    hyprlock
     hypridle
   ];
 
