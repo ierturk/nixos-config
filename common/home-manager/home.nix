@@ -85,6 +85,8 @@
     ".config/waybar/config".source = ../dotfiles/config/waybar/config;
     ".config/waybar/mocha.css".source = ../dotfiles/config/waybar/mocha.css;
     ".config/waybar/style.css".source = ../dotfiles/config/waybar/style.css;
+    ### Wofi
+    ".config/wofi/style.css".source = ../dotfiles/config/wofi/style.css;
 
     ##### WayVnc
     ".config/wayvnc/config".source = ../dotfiles/config/wayvnc/config;
