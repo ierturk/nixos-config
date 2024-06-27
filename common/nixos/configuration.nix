@@ -185,6 +185,9 @@
 
     libsForQt5.qt5.qtwayland
     brightnessctl
+    xdg-desktop-portal-hyprland
+    libsForQt5.polkit-kde-agent
+    kdePackages.polkit-kde-agent-1
   ];
 
   services.openssh = {
