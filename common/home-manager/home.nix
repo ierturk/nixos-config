@@ -91,6 +91,7 @@
     ".config/hypr/hypridle.conf".source = ../dotfiles/config/hypr/hypridle.conf;
     ### Hypridle
     ".config/hypr/hyprlock.conf".source = ../dotfiles/config/hypr/hyprlock.conf;
+    ".config/hypr/mocha.conf".source = ../dotfiles/config/hypr/mocha.conf;
 
     ##### WayVnc
     ".config/wayvnc/config".source = ../dotfiles/config/wayvnc/config;
