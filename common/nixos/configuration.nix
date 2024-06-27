@@ -184,6 +184,7 @@
     # mako # notification system developed by swaywm maintainer
 
     libsForQt5.qt5.qtwayland
+    brightnessctl
   ];
 
   services.openssh = {

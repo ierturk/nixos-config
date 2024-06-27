@@ -72,10 +72,21 @@
   ];
 
   home.file = {
+
+    ##### Global git config
     ".gitconfig".source = ../dotfiles/gitconfig;
+
+    ##### Hyprland
     ".config/hypr/hyprland.conf".source = ../dotfiles/config/hypr/hyprland.conf;
+    ### Wallpaper config
     ".config/hypr/hyprpaper.conf".source = ../dotfiles/config/hypr/hyprpaper.conf;
     ".config/hypr/wallpapers/OneStandsOut.jpg".source = ../dotfiles/config/hypr/wallpapers/OneStandsOut.jpg;
+    ### WayBar config
+    ".config/waybar/config".source = ../dotfiles/config/waybar/config;
+    ".config/waybar/mocha.css".source = ../dotfiles/config/waybar/mocha.css;
+    ".config/waybar/style.css".source = ../dotfiles/config/waybar/style.css;
+
+    ##### WayVnc
     ".config/wayvnc/config".source = ../dotfiles/config/wayvnc/config;
   };
 
