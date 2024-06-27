@@ -2,7 +2,7 @@
 let
 in {
   environment.systemPackages = with pkgs; [
-    dolphin
+    # dolphin
     dunst
     kitty
     libnotify

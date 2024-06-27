@@ -185,6 +185,7 @@
     # mako # notification system developed by swaywm maintainer
 
     libsForQt5.qt5.qtwayland
+    kdePackages.qtwayland
     brightnessctl
     xdg-desktop-portal-hyprland
     libsForQt5.polkit-kde-agent
@@ -251,6 +252,8 @@
 
   ### VayVnc
   networking.firewall.allowedTCPPorts = [ 5900 ];
+
+  services.udisks2.enable = true;
 
   system.stateVersion = "24.05";
 }

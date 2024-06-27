@@ -5,7 +5,6 @@ let
   session = "${pkgs.hyprland}/bin/Hyprland";
   username = "me";
 in
-
 {
   services.greetd = {
     enable = true;
@@ -15,7 +14,7 @@ in
         user = "${username}";
       };
       default_session = {
-        command = "${tuigreet} --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time -cmd ${session}";
+        command = "${tuigreet} --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red' --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time -cmd ${session}";
         user = "greeter";
       };
     };

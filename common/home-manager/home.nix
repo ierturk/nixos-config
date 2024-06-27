@@ -35,26 +35,37 @@
     pinentry-all
 
     ###### KDE 6
-    # kdePackages.kate
+    kdePackages.kate
+    kdePackages.konsole
+    kdePackages.dolphin
     # kdePackages.kwallet-pam
     # kdePackages.bluedevil
     # kdePackages.plasma-browser-integration
     # kdePackages.flatpak-kcm
-    # kdePackages.discover
+    kdePackages.discover
     # kdePackages.krdp
     # kdePackages.krdc
     # kdePackages.sddm-kcm
+    kdePackages.qt6ct
+    kdePackages.qtstyleplugin-kvantum
+    kdePackages.breeze-icons
     ######
 
     ###### KDE 5
-    libsForQt5.kate
-    libsForQt5.kwallet-pam
-    libsForQt5.bluedevil
-    libsForQt5.plasma-browser-integration
-    libsForQt5.flatpak-kcm
-    libsForQt5.discover
+    # libsForQt5.kate
+    # libsForQt5.kwallet-pam
+    # libsForQt5.bluedevil
+    # libsForQt5.plasma-browser-integration
+    # libsForQt5.flatpak-kcm
+    # libsForQt5.discover
     # libsForQt5.sddm-kcm
+    libsForQt5.qt5ct
+    libsForQt5.qtstyleplugin-kvantum
+    # libsForQt5.breeze-icons
     #######
+
+    ##### For Hyperland KDE apps support
+    hack-font
 
     flatpak
     ### Install from Discover by using Flatpak ( FlatHub )
@@ -93,6 +104,8 @@
     ".config/hypr/hyprlock.conf".source = ../dotfiles/config/hypr/hyprlock.conf;
     ".config/hypr/mocha.conf".source = ../dotfiles/config/hypr/mocha.conf;
     ".config/hypr/images/avatar.jpeg".source = ../dotfiles/config/hypr/images/avatar.jpeg;
+    ##### qt6ct
+    ".config/qt6ct/qt6ct.conf".source = ../dotfiles/config/qt6ct/qt6ct.conf;
 
     ##### WayVnc
     ".config/wayvnc/config".source = ../dotfiles/config/wayvnc/config;
