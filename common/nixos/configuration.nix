@@ -11,6 +11,7 @@
     # ../packages/nomachine/nomachine.nix
     ../modules/home-manager.nix
     ../modules/hyprland.nix
+    ../modules/greetd.nix
   ];
 
   nixpkgs = {
@@ -61,25 +62,25 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = false;
-    # settings.General.DisplayServer = "x11-user";
-  };
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   wayland.enable = false;
+  #   # settings.General.DisplayServer = "x11-user";
+  # };
 
   # services.desktopManager.plasma6.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  # services.xserver.desktopManager.plasma5.enable = true;
 
   # Enable automatic login for the user.
-  services.displayManager.defaultSession = "hyprland";
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "me";
+  # services.displayManager.defaultSession = "hyprland";
+  # services.displayManager.autoLogin.enable = true;
+  # services.displayManager.autoLogin.user = "me";
   ### Workaround for autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
+  # systemd.services."getty@tty1".enable = false;
+  # systemd.services."autovt@tty1".enable = false;
 
   ### Various tests
   # services.displayManager.defaultSession = "none+icewm";
