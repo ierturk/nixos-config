@@ -120,6 +120,11 @@
   programs.direnv.enable = true;
   # programs.git.enable = true;
 
+  programs.kitty = {
+    enable = true;
+    extraConfig = "";
+  };
+
   systemd.user.startServices = "sd-switch";
   home.stateVersion = "24.05";
 }
