@@ -57,7 +57,7 @@ in {
 
   fonts.packages = with pkgs; [
     font-awesome
-    nerdfonts
+    # nerdfonts
   ];
 
   xdg.portal.enable = true;
