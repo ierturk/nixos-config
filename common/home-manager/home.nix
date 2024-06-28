@@ -94,8 +94,9 @@
     ".config/hypr/images/OneStandsOut.jpg".source = ../dotfiles/config/hypr/images/OneStandsOut.jpg;
     ### WayBar config
     ".config/waybar/config".source = ../dotfiles/config/waybar/config;
-    ".config/waybar/mocha.css".source = ../dotfiles/config/waybar/mocha.css;
+    # ".config/waybar/mocha.css".source = ../dotfiles/config/waybar/mocha.css;
     ".config/waybar/style.css".source = ../dotfiles/config/waybar/style.css;
+    ".config/waybar/mediaplayer.py".source = ../dotfiles/config/waybar/mediaplayer.py;
     ### Wofi
     ".config/wofi/style.css".source = ../dotfiles/config/wofi/style.css;
     ### Hypridle

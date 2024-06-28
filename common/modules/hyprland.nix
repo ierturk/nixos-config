@@ -7,7 +7,7 @@ in {
     kitty
     libnotify
     networkmanagerapplet
-    # rofi-wayland
+    hyprlang
     waybar
     pavucontrol
     wayvnc
