@@ -19,6 +19,33 @@ in {
     wl-clipboard
     grim
     slurp
+
+    ## wl tools
+    wlrctl
+    wlroots
+    wlr-randr
+    wlr-protocols
+    wlr-layout-ui
+    xdg-desktop-portal-wlr
+    wvkbd
+    wlsunset
+    wl-color-picker
+    hyprpicker
+    tinywl
+    mpvpaper
+    nwg-bar
+    ironbar
+    wmenu
+    wf-recorder
+    kanshi
+    wayout
+    wl-screenrec
+    wayshot
+    nwg-look
+
+    libva
+    libva-utils
+    libdrm
   ];
 
   programs.hyprland.enable = true;
