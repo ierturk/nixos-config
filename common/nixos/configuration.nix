@@ -61,49 +61,6 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  # services.displayManager.sddm = {
-  #   enable = true;
-  #   wayland.enable = false;
-  #   # settings.General.DisplayServer = "x11-user";
-  # };
-
-  # services.desktopManager.plasma6.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
-
-  # Enable automatic login for the user.
-  # services.displayManager.defaultSession = "hyprland";
-  # services.displayManager.autoLogin.enable = true;
-  # services.displayManager.autoLogin.user = "me";
-  ### Workaround for autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  # systemd.services."getty@tty1".enable = false;
-  # systemd.services."autovt@tty1".enable = false;
-
-  ### Various tests
-  # services.displayManager.defaultSession = "none+icewm";
-  # services.xserver.windowManager.icewm.enable = true;
-  ###
-
-  ### SwayWM
-  # services.gnome.gnome-keyring.enable = true;
-  # enable sway window manager
-  # programs.sway = {
-  #   enable = true;
-  #   wrapperFeatures.gtk = true;
-  # };
-  ### End of SwayWM
-
-  # services.xserver.desktopManager.xfce.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "gb";
-  #   variant = "";
-  # };
-
   # Configure console keymap
   console.keyMap = "uk";
 
@@ -131,13 +88,9 @@
     me = {
       isNormalUser = true;
       description = "Ibrahim Erturk";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "wireshark" "podman" "video" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "wireshark" "podman" "video" "input" ];
     };
   };
-
-
-  ### Plasma browser integration fix
-  environment.etc."opt/edge/native-messaging-hosts/org.kde.plasma.browser_integration.json".source = "${pkgs.kdePackages.plasma-browser-integration}/etc/opt/edge/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
@@ -151,14 +104,8 @@
     nix-index
     wireguard-tools
     nmap
-    # pulseaudio-module-xrdp
 
-    ### sddm background
-    (writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-      [General]
-        background=${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/OneStandsOut/contents/images/2560x1600.jpg
-    '')
-    ### end of sddm background
+    python3
 
     ### NoMachine server
     # (pkgs.callPackage ../../common/packages/nomachine/default.nix {})
@@ -168,21 +115,8 @@
     dive
     podman-tui
     podman-compose
-    # podman-desktop
-    # toolbox
 
     networkmanager
-
-    # xorg.xhost
-    # xorg.xdpyinfo
-    # wayvnc
-    # xwayland-run
-
-    ### SwayWM
-    # grim # screenshot functionality
-    # slurp # screenshot functionality
-    # wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    # mako # notification system developed by swaywm maintainer
 
     libsForQt5.qt5.qtwayland
     kdePackages.qtwayland
@@ -220,34 +154,12 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  # programs.direnv.enable = true;
   programs.wireshark.enable = true;
 
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = lib.mkForce pkgs.pinentry-curses;
   };
-
-  # XRDP service
-  # services.xrdp = {
-  #   enable = true;
-  #   defaultWindowManager = "startplasma-x11";
-  #   openFirewall = true;
-  #   port = 3389;
-  #   audio.enable = true;
-  # };
-
-  ### NX server
-  # services.nxserver.enable = false;
-  ## server settings
-  # services.nxserver.serverSettings.EnableDebug = true;
-  # services.nxserver.serverSettings.SessionLogLevel = 9;
-  ## node settings
-  # services.nxserver.nodeSettings.EnableDebug = true;
-  # services.nxserver.nodeSettings.SessionLogLevel = 9;
-  # services.nxserver.nodeSettings.EnableEGLCapture = true;
-  # open port
-  # networking.firewall.allowedTCPPorts = [ 4000 5353 ];
 
   ### VayVnc
   networking.firewall.allowedTCPPorts = [ 5900 ];

@@ -38,7 +38,7 @@
     "hyprland/language": {
         "format": "{}",
         "format-en": "GB",
-        "format-tr": "TR=",
+        "format-tr": "TR",
         "keyboard-name": "at-translated-set-2-keyboard"
     },
     "keyboard-state": {
