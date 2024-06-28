@@ -99,10 +99,10 @@
   # services.xserver.desktopManager.xfce.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "gb";
-    variant = "";
-  };
+  # services.xserver.xkb = {
+  #   layout = "gb";
+  #   variant = "";
+  # };
 
   # Configure console keymap
   console.keyMap = "uk";
@@ -187,7 +187,6 @@
     libsForQt5.qt5.qtwayland
     kdePackages.qtwayland
     brightnessctl
-    xdg-desktop-portal-hyprland
     libsForQt5.polkit-kde-agent
     kdePackages.polkit-kde-agent-1
   ];
@@ -226,7 +225,7 @@
 
   programs.gnupg.agent = {
     enable = true;
-    pinentryPackage = lib.mkForce pkgs.pinentry-qt;
+    pinentryPackage = lib.mkForce pkgs.pinentry-curses;
   };
 
   # XRDP service
@@ -256,6 +255,8 @@
   services.udisks2.enable = true;
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
+
+  programs.vim.defaultEditor = true;
 
   system.stateVersion = "24.05";
 }

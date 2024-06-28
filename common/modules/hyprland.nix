@@ -2,7 +2,7 @@
 let
 in {
   environment.systemPackages = with pkgs; [
-    # dolphin
+    yazi
     dunst
     kitty
     libnotify
@@ -16,6 +16,9 @@ in {
     blueman
     hyprlock
     hypridle
+    wl-clipboard
+    grim
+    slurp
   ];
 
   programs.hyprland.enable = true;
@@ -33,5 +36,6 @@ in {
   xdg.portal.enable = true;
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-wlr
+    xdg-desktop-portal-hyprland
   ];
 }
