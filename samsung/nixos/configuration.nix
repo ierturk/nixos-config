@@ -6,7 +6,7 @@
   flake-overlays,
   ...
 }: {
-  # You can import other NixOS modules here
+
   imports = [
     ../../common/nixos/configuration.nix
     ../modules/filesystem.nix

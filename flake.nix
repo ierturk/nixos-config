@@ -49,7 +49,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs outputs flake-overlays; };
         modules = [
-          ./samsung/nixos/configuration.nix
+          ./dell/nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
