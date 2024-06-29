@@ -55,9 +55,14 @@ in {
     NIXOS_OZONE_WL = "1";
   };
 
+  fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
     font-awesome
-    # nerdfonts
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "Meslo"
+      ];
+    })
   ];
 
   xdg.portal.enable = true;
