@@ -56,6 +56,10 @@
     ".config/hypr/mocha.conf".source = ../dotfiles/config/hypr/mocha.conf;
     ".config/hypr/images/avatar.jpeg".source = ../dotfiles/config/hypr/images/avatar.jpeg;
 
+    ### wlogout config
+    ".config/wlogout/layout".source = ../dotfiles/config/wlogout/layout;
+    ".config/wlogout/style.css".source = ../dotfiles/config/wlogout/style.css;
+
     ##### WayVnc
     ".config/wayvnc/config".source = ../dotfiles/config/wayvnc/config;
   };

@@ -42,6 +42,7 @@ in {
     wl-screenrec
     wayshot
     nwg-look
+    wlogout
 
     libva
     libva-utils
