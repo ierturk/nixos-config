@@ -9,32 +9,9 @@
   imports = [
     # ../modules/wireguard.nix
     # ../packages/nomachine/nomachine.nix
-    ../modules/home-manager.nix
     ../modules/hyprland.nix
     ../modules/greetd.nix
   ];
-
-  nixpkgs = {
-    overlays = [
-    ];
-    config = {
-      allowUnfree = true;
-    };
-  };
-
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
-    settings = {
-      experimental-features = "nix-command flakes";
-      flake-registry = "";
-      nix-path = config.nix.nixPath;
-    };
-    channel.enable = false;
-
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -123,6 +100,8 @@
     brightnessctl
     libsForQt5.polkit-kde-agent
     kdePackages.polkit-kde-agent-1
+
+    matlab
   ];
 
   services.openssh = {
