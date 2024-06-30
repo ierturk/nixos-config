@@ -1,7 +1,24 @@
 { config, pkgs, ...}:
 let
 in {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
+    aha
+    clinfo
+    glxinfo
+    vulkan-tools
+    gpu-viewer
+    gnupg
+    gitFull
+    pinentry-all
+    vscode
+    microsoft-edge
+    teams-for-linux
+    wireshark
+    solaar
+    spotify
+    vlc
+    remmina
+
     yazi
     dunst
     kitty
@@ -20,7 +37,6 @@ in {
     grim
     slurp
 
-    ## wl tools
     wlrctl
     wlroots
     wlr-randr
@@ -49,26 +65,59 @@ in {
     libdrm
   ];
 
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = true;
+  home.file = {
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
+    ##### Global git config
+    ".gitconfig".source = ../dotfiles/gitconfig;
+
+    ##### Hyprland
+    # ".config/hypr/hyprland.conf".source = ../dotfiles/config/hypr/hyprland.conf;
+    # getting from the option by extraConfig
+    ### Wallpaper config
+    ".config/hypr/hyprpaper.conf".source = ../dotfiles/config/hypr/hyprpaper.conf;
+    ".config/hypr/images/OneStandsOut.jpg".source = ../dotfiles/config/hypr/images/OneStandsOut.jpg;
+    ### WayBar config
+    ".config/waybar/config".source = ../dotfiles/config/waybar/config;
+    ".config/waybar/style.css".source = ../dotfiles/config/waybar/style.css;
+    ".config/waybar/mediaplayer.py".source = ../dotfiles/config/waybar/mediaplayer.py;
+    ### Wofi
+    ".config/wofi/style.css".source = ../dotfiles/config/wofi/style.css;
+    ### Hypridle
+    ".config/hypr/hypridle.conf".source = ../dotfiles/config/hypr/hypridle.conf;
+    ### Hyprlock
+    ".config/hypr/hyprlock.conf".source = ../dotfiles/config/hypr/hyprlock.conf;
+    ".config/hypr/mocha.conf".source = ../dotfiles/config/hypr/mocha.conf;
+    ".config/hypr/images/avatar.jpeg".source = ../dotfiles/config/hypr/images/avatar.jpeg;
+
+    ### wlogout config
+    ".config/wlogout/layout".source = ../dotfiles/config/wlogout/layout;
+    ".config/wlogout/style.css".source = ../dotfiles/config/wlogout/style.css;
+
+    ##### WayVnc
+    ".config/wayvnc/config".source = ../dotfiles/config/wayvnc/config;
   };
 
-  fonts.fontconfig.enable = true;
-  fonts.packages = with pkgs; [
-    font-awesome
-    (pkgs.nerdfonts.override {
-      fonts = [
-        "Meslo"
-      ];
-    })
-  ];
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    bashrcExtra = '''';
+  };
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = with pkgs; [
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-hyprland
-  ];
+  programs.direnv.enable = true;
+
+  programs.kitty = {
+    enable = true;
+    extraConfig = "";
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    plugins = [
+      pkgs.hyprlandPlugins.hyprexpo
+    ];
+    extraConfig = ''
+      ${builtins.readFile ../dotfiles/config/hypr/hyprland.conf}
+      ${builtins.readFile ../dotfiles/config/hypr/hyprexpo.conf}
+    '';
+  };
 }

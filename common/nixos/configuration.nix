@@ -9,7 +9,6 @@
   imports = [
     # ../modules/wireguard.nix
     # ../packages/nomachine/nomachine.nix
-    ../modules/hyprland.nix
     ../modules/greetd.nix
   ];
 
@@ -112,8 +111,31 @@
     };
   };
 
-  # Virtualization
+  ### Hyprland and Flatpak
+  programs.xwayland.enable = true;
+  programs.hyprland.xwayland.enable = true;
   services.flatpak.enable = true;
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal-hyprland
+  ];
+  environment.pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
+  xdg.portal.config.common.default = "*";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+  fonts.fontconfig.enable = true;
+  fonts.packages = with pkgs; [
+    font-awesome
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "Meslo"
+      ];
+    })
+  ];
+
+  # Virtualization
   programs.virt-manager.enable = true;
   virtualisation = {
     libvirtd.enable = true;
