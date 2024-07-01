@@ -96,10 +96,12 @@
 
     libsForQt5.qt5.qtwayland
     libsForQt5.polkit-kde-agent
+    libsecret
 
     matlab
   ];
 
+  ### ssh service
   services.openssh = {
     enable = true;
     settings = {
@@ -109,6 +111,14 @@
   };
 
   ### Hyprland and Flatpak
+  services.flatpak.enable = true;
+
+  # password management
+  programs.seahorse.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
+  programs.ssh.startAgent = true;
+
   programs.xwayland.enable = true;
   programs.hyprland.xwayland.enable = true;
   xdg.portal.enable = true;

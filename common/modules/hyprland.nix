@@ -63,8 +63,6 @@ in {
     libva
     libva-utils
     libdrm
-
-    keepassxc
   ];
 
   home.file = {
