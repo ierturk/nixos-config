@@ -95,10 +95,7 @@
     networkmanager
 
     libsForQt5.qt5.qtwayland
-    kdePackages.qtwayland
-    brightnessctl
     libsForQt5.polkit-kde-agent
-    kdePackages.polkit-kde-agent-1
 
     matlab
   ];
@@ -114,7 +111,6 @@
   ### Hyprland and Flatpak
   programs.xwayland.enable = true;
   programs.hyprland.xwayland.enable = true;
-  services.flatpak.enable = true;
   xdg.portal.enable = true;
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-wlr

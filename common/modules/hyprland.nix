@@ -63,6 +63,8 @@ in {
     libva
     libva-utils
     libdrm
+
+    keepassxc
   ];
 
   home.file = {
@@ -119,5 +121,10 @@ in {
       ${builtins.readFile ../dotfiles/config/hypr/hyprland.conf}
       ${builtins.readFile ../dotfiles/config/hypr/hyprexpo.conf}
     '';
+    settings = {
+      exec-once = [
+        ''${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &''
+      ];
+    };
   };
 }
