@@ -92,14 +92,13 @@
     podman-tui
     podman-compose
 
-    networkmanager
-
-    libsForQt5.qt5.qtwayland
-    libsForQt5.polkit-kde-agent
+    polkit_gnome
+    libsecret
 
     matlab
   ];
 
+  ### ssh service
   services.openssh = {
     enable = true;
     settings = {
@@ -108,19 +107,37 @@
     };
   };
 
-  ### Hyprland and Flatpak
-  programs.xwayland.enable = true;
-  programs.hyprland.xwayland.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = with pkgs; [
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-hyprland
-  ];
-  environment.pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
-  xdg.portal.config.common.default = "*";
+  ### Hyprland
+  # VayVnc
+  networking.firewall.allowedTCPPorts = [ 5900 ];
+
+  # password management
+  programs.seahorse.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
+  programs.ssh.startAgent = true;
+  security.polkit.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-hyprland
+    ];
+    config = {
+      preferred = {
+        default = [
+          "wlr"
+          "hyprland"
+        ];
+      };
+    };
+  };
+  # Electron fix
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
+  # Font config
   fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
     font-awesome
@@ -157,9 +174,6 @@
     enable = true;
     pinentryPackage = lib.mkForce pkgs.pinentry-curses;
   };
-
-  ### VayVnc
-  networking.firewall.allowedTCPPorts = [ 5900 ];
 
   services.udisks2.enable = true;
   services.power-profiles-daemon.enable = true;
