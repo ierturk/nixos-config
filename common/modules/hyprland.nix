@@ -63,7 +63,16 @@ in {
     libva
     libva-utils
     libdrm
-  ];
+
+  ] ++ ( with gnome;
+    [
+      adwaita-icon-theme
+      gnome-themes-extra
+      nautilus
+      file-roller
+      gnome-calculator
+    ]
+  );
 
   home.file = {
 

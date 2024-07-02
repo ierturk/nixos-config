@@ -111,6 +111,9 @@
   # VayVnc
   networking.firewall.allowedTCPPorts = [ 5900 ];
 
+  # flatpak
+  services.flatpak.enable = true;
+
   # password management
   programs.seahorse.enable = true;
   services.gnome.gnome-keyring.enable = true;
