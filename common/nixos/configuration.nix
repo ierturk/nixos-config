@@ -64,7 +64,7 @@
     me = {
       isNormalUser = true;
       description = "Ibrahim Erturk";
-      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "wireshark" "podman" "video" "input" ];
+      extraGroups = [ "networkmanager" "wheel" "libvirtd" "kvm" "wireshark" "podman" "video" "input" "dialout" ];
     };
   };
 

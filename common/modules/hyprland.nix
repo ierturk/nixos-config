@@ -64,6 +64,9 @@ in {
     libva-utils
     libdrm
 
+    tio
+    socat
+
   ] ++ ( with gnome;
     [
       adwaita-icon-theme
@@ -121,12 +124,14 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [
-      pkgs.hyprlandPlugins.hyprexpo
+    plugins = with pkgs.hyprlandPlugins; [
+      hyprexpo
+      hyprbars
     ];
     extraConfig = ''
       ${builtins.readFile ../dotfiles/config/hypr/hyprland.conf}
       ${builtins.readFile ../dotfiles/config/hypr/hyprexpo.conf}
+      ${builtins.readFile ../dotfiles/config/hypr/hyprbars.conf}
     '';
     settings = {
       exec-once = [
